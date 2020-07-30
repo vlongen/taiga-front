@@ -245,6 +245,10 @@ class AuthService extends taiga.Service
             return
         @termsAnnouncementService.show()
 
+    sendVerificationEmail: () ->
+        url = @urls.resolve("user-send-verification-email")
+        return @http.post(url)
+
 module.service("$tgAuth", AuthService)
 
 
