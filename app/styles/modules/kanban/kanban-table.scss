@@ -86,9 +86,11 @@ $fold-animation-duration: .1s;
 }
 
 .kanban-table-header {
+    background: $color-white;
     flex-basis: 2.75rem;
     min-height: 2.75rem;
     position: relative;
+    z-index: 100;
     .kanban-table-inner {
         display: flex;
         overflow: visible;
@@ -325,5 +327,63 @@ $fold-animation-duration: .1s;
 .vfold {
     .placeholder-collapsed {
         display: flex;
+    }
+}
+
+.kanban-swimlane-title {
+    align-items: center;
+    background: $color-white;
+    display: flex;
+    padding: .625rem 1rem;
+    position: sticky;
+    top: 8.75rem;
+    width: 100%;
+    z-index: 100;
+
+    &.kanban-swimlane-folded {
+        tg-svg {
+            fill: $color-link-tertiary;
+        }
+
+        .title-name {
+            fill: $color-link-tertiary;
+        }
+    }
+
+    tg-svg {
+        fill: $color-link-primary;
+        height: 16px;
+        margin-right: .75rem;
+        width: 16px;
+    }
+
+    .title-name {
+        @include font-size(small);
+        @include font-type(medium);
+        color: $color-link-primary;
+        margin-bottom: 0;
+        margin-right: .75rem;
+    }
+
+    .number {
+        @include font-size(xsmall);
+        color: $color-link-tertiary;
+    }
+}
+
+
+.kanban-table-swimlane {
+    overflow: visible;
+
+    .kanban-table-header {
+        min-height: 2.25rem;
+        position: sticky;
+        top: 6.5rem;
+
+    }
+
+    .kanban-table-body {
+        max-height: 56vh;
+        min-height: 180px;
     }
 }
