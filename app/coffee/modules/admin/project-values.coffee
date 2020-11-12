@@ -1476,5 +1476,33 @@ ProjectTagsDirective = ($log, $repo, $confirm, $location, animationFrame, $trans
 
     return {link:link}
 
-module.directive("tgProjectTags", ["$log", "$tgRepo", "$tgConfirm", "$tgLocation", "animationFrame",
-                                   "$translate", "$rootScope", ProjectTagsDirective])
+module.directive("tgProjectTags", ["$log", "$tgRepo", "$tgConfirm", "$tgLocation", "animationFrame","$translate", "$rootScope", ProjectTagsDirective])
+
+#############################################################################
+## Swimlanes wip controller
+#############################################################################
+
+class ProjectSwimlanesWipController extends taiga.Controller
+    @.wipClosed = false;
+
+    toggleWipVisibility: () ->
+        @.wipClosed = !@.wipClosed
+
+module.controller("ProjectSwimlanesWipController", ProjectSwimlanesWipController)
+
+#############################################################################
+## Swimlanes wip status controller
+#############################################################################
+
+class ProjectSwimlanesWipStatusController extends taiga.Controller
+    @.wipEdit = false;
+
+    toggleWipEdit: () ->
+        @.wipEdit = !@.wipEdit
+
+    updateSwimlaneStatusWip: (id, wip_limit) ->
+        # This is what we send to back in the future
+        console.log(id: id, wip_limit: wip_limit)
+        @.wipEdit = false;
+
+module.controller("ProjectSwimlanesWipStatusController", ProjectSwimlanesWipStatusController)
