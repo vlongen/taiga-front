@@ -1425,7 +1425,8 @@
         },
         "FILTERS": {
             "TOGGLE": "Toggle filters visibility",
-            "TITLE": "Filters"
+            "TITLE": "Filters",
+            "HIDE_TITLE": "Hide filters"
         },
         "SPRINTS": {
             "TITLE": "SPRINTS",
