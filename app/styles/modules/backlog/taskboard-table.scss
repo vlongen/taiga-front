@@ -229,7 +229,11 @@ tg-card[type='task'].folded-dragging {
 
 .taskboard-table-body {
     margin-top: .25rem;
-    width: 100%;
+    .taskboard-table-inner {
+        border-bottom: 4px solid $color-solid-primary;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+    }
     .taskboard-column {
         flex-grow: $column-flex;
         flex-shrink: $column-shrink;
@@ -496,5 +500,13 @@ tg-card[type='task'].folded-dragging {
                 }
             }
         }
+    }
+}
+
+.issues-wrapper {
+    max-width: 1400px;
+    width: 100%;
+    &.zoom-0 {
+        max-width: 924px;
     }
 }

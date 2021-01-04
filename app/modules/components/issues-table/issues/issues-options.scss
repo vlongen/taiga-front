@@ -2,9 +2,32 @@
     align-items: center;
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 2rem;
-    .new-issue {
+    margin-bottom: 1rem;
+}
+
+.new-issue {
+    display: flex;
+    gap: .5rem;
+}
+
+.in-taskboard {
+    background: $color-gray200;
+    display: flex;
+    justify-content: space-between;
+    padding: .75rem;
+    &.empty {
+        background: $color-gray100;
+    }
+    .sprint-issues-title {
+        align-items: center;
         display: flex;
-        gap: .5rem;
+        .icon {
+            fill: $color-gray400;
+            margin-right: .5rem;
+        }
+    }
+    .sprint-issues-title-txt {
+        color: $color-link-tertiary;
+        text-transform: uppercase;
     }
 }

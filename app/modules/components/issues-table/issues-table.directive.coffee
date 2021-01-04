@@ -19,9 +19,24 @@
 
 module = angular.module("taigaComponents")
 
-issuesTableDirective = () ->
+issuesTableDirective = ($timeout) ->
+
+    link = (scope, el, attrs, ctrl) ->
+        scope.issueOptions = null
+
+        scope.displayOptions = (id) ->
+            if (timeout)
+                $timeout.cancel(timeout)
+                timeout = null
+            scope.issueOptions = id
+
+        scope.hideOptions = () ->
+            timeout = $timeout (() ->
+                scope.issueOptions = null
+            ), 200
+
     return {
-        controller: "IssuesTrable",
+        controller: "IssuesTable",
         controllerAs: "ctrl",
         templateUrl: "components/issues-table/issues-table.html",
         bindToController: {
@@ -30,8 +45,12 @@ issuesTableDirective = () ->
             onAddIssuesInBulk: '&',
             onAddNewIssue: '&',
             sprintIssues: '<',
+            onDeleteIssue: '&',
+            onEditIssue: '&',
+            onDetachIssue: '&',
         },
         scope: true,
+        link: link
     }
 
-module.directive('tgIssuesTable', issuesTableDirective)
+module.directive('tgIssuesTable', ['$timeout', issuesTableDirective])

@@ -18,36 +18,14 @@
 ###
 
 class IssuesTableController
-    @.$inject = [
-        "$rootScope",
-        "$tgConfirm",
-        "$tgResources",
-        "tgProjectService",
-    ]
 
-    constructor: (@rootscope, @confirm, @rs, @projectService) ->
-        @.voting = false
+    edit: (issue) ->
+        @.onEditIssue({id: issue.id})
 
-    upVoteIssue: (issueId) ->
-        @.voting = issueId
-        onSuccess = =>
-            @.onLoadIssues()
-            @.voting = null
-        onError = =>
-            @confirm.notify("error")
-            @.voting = null
+    detach: (issue) ->
+        @.onDetachIssue({id: issue.id})
 
-        return @rs.issues.upvote(issueId).then(onSuccess, onError)
+    delete: (issue) ->
+        @.onDeleteIssue({id: issue.id})
 
-    downVoteIssue: (issueId) ->
-        @.voting = issueId
-        onSuccess = =>
-            @.onLoadIssues()
-            @.voting = null
-        onError = =>
-            @confirm.notify("error")
-            @.voting = null
-
-        return @rs.issues.downvote(issueId).then(onSuccess, onError)
-
-angular.module('taigaComponents').controller('IssuesTrable', IssuesTableController)
+angular.module('taigaComponents').controller('IssuesTable', IssuesTableController)

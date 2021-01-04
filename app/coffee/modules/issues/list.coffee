@@ -495,12 +495,13 @@ IssuesOrderingDirective = ($log, $location, $template, $compile) ->
             icon = if startswith(currentOrder, "-") then "icon-arrow-up" else "icon-arrow-down"
             colHeadElement = $el.find(".row.title > div[data-fieldname='#{trim(currentOrder, "-")}']")
 
-            svg = $("<tg-svg>").attr("svg-icon", icon)
+            svg = colHeadElement.find('svg')
 
-            colHeadElement.append(svg)
+            svg.addClass(icon)
             $compile(colHeadElement.contents())($scope)
 
         $el.on "click", ".row.title > div:not(.skip-order)", (event) ->
+            event.preventDefault();
             target = angular.element(event.currentTarget)
 
             currentOrder = $ctrl.getIssuesOrderBy()
@@ -518,13 +519,12 @@ IssuesOrderingDirective = ($log, $location, $template, $compile) ->
 
                 $ctrl.loadIssues().then ->
                     # Update the arrow
-                    $el.find(".row.title > div > tg-svg").remove()
+                    $el.find('.row.title svg').removeClass()
+                    colHeadElement = $el.find(".row.title > div[data-fieldname='#{trim(finalOrder, "-")}']")
                     icon = if startswith(finalOrder, "-") then "icon-arrow-up" else "icon-arrow-down"
 
-                    svg = $("<tg-svg>")
-                        .attr("svg-icon", icon)
+                    colHeadElement.find('svg').addClass(icon)
 
-                    target.append(svg)
                     $compile(target.contents())($scope)
 
     ## Issues Link
@@ -618,7 +618,6 @@ module.directive("tgIssueStatusInlineEdition", ["$tgRepo", "$tgTemplate", "$root
 IssueAssignedToInlineEditionDirective = ($repo, $rootscope, $translate, avatarService, $lightboxFactory) ->
     template = _.template("""
     <img style="background-color: <%- bg %>" src="<%- imgurl %>" alt="<%- name %>"/>
-    <figcaption><%- name %></figcaption>
     """)
 
     link = ($scope, $el, $attrs) ->

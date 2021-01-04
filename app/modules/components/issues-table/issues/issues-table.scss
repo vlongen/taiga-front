@@ -1,168 +1,213 @@
 .issues-table {
-    display: flex;
     margin-bottom: 2rem;
+    padding: 0 1rem;
+
     &.empty {
         display: none;
     }
-    .row {
-        &:hover {
-            background: $primary-lighter;
-            transition: background .2s ease-in;
-        }
-        .icon {
-            display: inline;
-        }
-        &.is-blocked {
-            background: lighten($red-light, 20%);
-            .blocked-text {
-                color: $red;
-                margin-right: .5rem;
-            }
-        }
-    }
+
+    // Only affects table header
     .title {
-        @include font-size(medium);
-        @include font-type(medium);
-        border-bottom: 1px solid $gray-light;
-        &:hover {
-            background: transparent;
-        }
-        div:not(.skip-order) {
+        @include font-size(xsmall);
+        border-bottom: none;
+        margin-bottom: .75rem;
+        padding: 0 .6rem;
+        text-transform: uppercase;
+        [data-fieldname]:not(.skip-order) {
             cursor: pointer;
         }
-        .votes {
-            color: $gray;
+        [data-fieldname] {
+            align-items: center;
+            color: $color-link-tertiary;
+            display: flex;
+            justify-content: center;
+            &:hover {
+                color: $color-link-primary;
+            }
+        }
+        .issue-field {
+            justify-content: flex-end;
+        }
+        .subject {
+            justify-content: flex-start;
+        }
+        .icon-arrow-up {
+            .arrow-up {
+                fill: $color-link-primary;
+            }
+        }
+        .icon-arrow-down {
+            .arrow-down {
+                fill: $color-link-primary;
+            }
+        }
+        .arrow-up,
+        .arrow-down {
+            fill: $color-gray400;
         }
     }
-    .table-main {
+
+    // Only affects table rows, not header
+    .row:not(.title) {
         @include font-size(small);
-        border-bottom: 1px solid darken($whitish, 4%);
-    }
-    .avatar {
-        align-items: center;
-        display: flex;
-        img {
-            height: 35px;
-            width: 35px;
+        background: $color-gray100;
+        border-bottom: none;
+        border-radius: 3px;
+        color: $color-link-tertiary;
+        margin-bottom: .75rem;
+        padding: .6rem;
+        &:hover {
+            background: $color-gray200;
+            transition: background .2s ease-in;
         }
-        figcaption {
-            flex-basis: 60%;
-            flex-grow: 1;
-            margin-left: .5rem;
+        &.is-blocked {
+            background: $color-solid-red;
+            .blocked-text {
+                color: $color-black900;
+            }
+        }
+        .attachments-field {
+            display: flex;
+            justify-content: center;
+            .icon {
+                @include svg-size(.75rem);
+                fill: currentColor;
+                margin-left: .25rem;
+            }
+        }
+        .issue-status {
+            align-items: center;
+            display: flex;
+            .icon {
+                margin-left: .4rem;
+            }
+        }
+        .issue-assignedto {
+            &:hover {
+                cursor: pointer;
+                .avatar img {
+                    border: 2px solid $color-solid-primary;
+                }
+                .icon {
+                    fill: $color-link-tertiary;
+                }
+            }
         }
     }
+
+    // Affects both table header and body
     .level-field {
-        flex-basis: 85px;
+        flex-basis: 70px;
         flex-grow: 0;
         flex-shrink: 0;
-        text-align: center;
-        width: 85px;
-    }
-    .votes {
-        color: $gray;
-        cursor: pointer;
-        flex-basis: 75px;
-        flex-shrink: 0;
-        text-align: center;
-        width: 75px;
-        &:hover {
-            color: $primary-light;
-            transition: all .2s linear;
-            svg {
-                fill: $primary-light;
-                transition: all .2s linear;
-            }
-        }
-        &.inactive {
-            color: $gray-light;
-        }
-    }
-    .icon-upvote {
-        @include svg-size(.75rem);
-        fill: $gray;
-        margin-right: .25rem;
-        vertical-align: middle;
-    }
-    .icon-arrow-up,
-    .icon-arrow-down {
-        @include svg-size(.7rem);
-        fill: $gray-light;
-        margin-left: .25rem;
-        vertical-align: middle;
-    }
-    .is-voted {
-        color: $primary-light;
-        transition: all .2s linear;
-        svg {
-            fill: $primary-light;
-            transition: all .2s linear;
-        }
-        &:hover {
-            color: $red-light;
-            svg {
-                fill: $red-light;
-                transform: rotate(180deg);
-            }
-
-        }
+        margin: 0 .5rem;
     }
     .subject {
-        overflow: hidden;
-        padding-right: 1rem;
-        width: 100%;
+        flex: 1;
+        margin: 0 .5rem;
         a {
-            @include ellipsis(100%);
-            display: block;
+            all: unset;
+            cursor: pointer;
         }
-        span {
-            vertical-align: middle;
-            &:first-child {
-                margin-right: .5rem;
-            }
-        }
-    }
-    .issue-field,
-    .modified-field,
-    .assigned-field {
-        flex-basis: 140px;
-        flex-grow: 1;
-        flex-shrink: 0;
-        padding: 0 1rem;
-        position: relative;
-        text-align: left;
-        .icon {
-            @include svg-size(.75rem);
-            fill: currentColor;
-            margin-left: .25rem;
-            vertical-align: middle;
-        }
-    }
-    .assigned-field {
-        flex: 0 0 160px;
-        max-width: 160px;
-    }
-    .issue-assignedto {
-        cursor: pointer;
-        position: relative;
         &:hover {
-            .icon {
-                opacity: 1;
-                transition: opacity .3s linear;
+            .issue-ref {
+                color: $color-black900;
+            }
+            .issue-subject {
+                color: $color-link-primary;
             }
         }
-        figcaption {
-            max-width: 60%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+        .issue-ref {
+            color: $color-link-primary;
+        }
+        .issue-subject {
+            color: $color-black900;
+            margin-inline-end: .75rem;
+        }
+        .due-date,
+        .blocked {
+            align-items: center;
+            display: inline-flex;
+            justify-content: center;
+            margin-left: .5rem;
+            vertical-align: middle;
+            .icon {
+                fill: $color-link-red;
+            }
+            tg-svg {
+                display: inline;
+            }
+        }
+        .tg-due-date {
+            display: inline-block;
+        }
+        .tag {
+            position: relative;
+            top: .25rem;
+            &.last {
+                margin-inline-end: .75rem;
+            }
+        }
+    }
+    .modified-field,
+    .assigned-field,
+    .attachments-field,
+    .options-field,
+    .issue-field {
+        flex-grow: 0;
+        flex-shrink: 0;
+        margin: 0 .5rem;
+        position: relative;
+    }
+    .issue-field {
+        display: flex;
+        flex-basis: 140px;
+        justify-content: flex-end;
+    }
+    .modified-field {
+        flex-basis: 100px;
+    }
+    .attachments-field {
+        flex-basis: 100px;
+    }
+    .assigned-field {
+        flex-basis: 100px;
+        .issue-assignedto {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+        .avatar {
+            align-items: center;
+            display: flex;
+            img {
+                border-radius: 50%;
+                height: 32px;
+                width: 32px;
+            }
         }
         .icon {
-            @include svg-size(.75rem);
-            opacity: 0;
-            position: absolute;
-            right: 0;
-            top: .75rem;
-            transition: opacity .3s linear;
+            fill: $color-link-primary;
+            margin-left: .25rem;
+        }
+    }
+    .options-field {
+        flex-basis: 16px;
+        .icon {
+            fill: $color-link-primary;
+        }
+        .options-button {
+            background: none;
+            height: 24px;
+            margin: 0;
+            padding: 0;
+            width: 16px;
+            &.active {
+                background: $color-gray200;
+                .icon {
+                    fill: $color-black600;
+                }
+            }
         }
     }
     .pop-status {
@@ -178,7 +223,36 @@
             display: none;
         }
     }
-    .issue-status {
-        display: inline-block;
+
+    .options {
+        background-color: $color-white;
+        border: 1px solid $color-gray400;
+        border-radius: 4px;
+        box-shadow: 4px 4px 8px rgba($color-gray400, .5);
+        padding: .5rem;
+        position: absolute;
+        right: 0;
+        top: calc(1rem + 4px);
+        width: 175px;
+        z-index: $first-layer;
+    }
+
+    .option {
+        @include font-size(small);
+        background: transparent;
+        color: $color-link-primary;
+        cursor: pointer;
+        display: flex;
+        padding: .25rem;
+        text-align: left;
+        width: 100%;
+
+        .icon {
+            margin-right: .25rem;
+        }
+
+        &:hover {
+            background: $color-gray200;
+        }
     }
 }
