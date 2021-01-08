@@ -29,7 +29,7 @@ CommentEditWysiwyg = (attachmentsFullService) ->
             us: "us"
             issue: "issue",
             task: "task",
-        }   
+        }
 
         $scope.uploadFiles = (file, cb) ->
             return attachmentsFullService.addAttachment($scope.vm.project.id, $scope.vm.object.toString(), types[$scope.vm.name], file, true, true).then (result) ->

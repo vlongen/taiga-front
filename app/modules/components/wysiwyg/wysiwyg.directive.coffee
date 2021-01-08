@@ -87,7 +87,7 @@ Wysiwyg = ($translate, $confirm, $storage, wysiwygService, animationFrame, tgLoa
             textEditor.addEventListener 'changed', (event) =>
                 if $scope.mode == 'html'
                     $scope.html = event.detail
-                else 
+                else
                     $scope.markdown = event.detail
 
                 throttleChange()
@@ -128,7 +128,7 @@ Wysiwyg = ($translate, $confirm, $storage, wysiwygService, animationFrame, tgLoa
 
             if notPersist
                 clean()
-            else 
+            else
                 $scope.markdown = $scope.content
                 setHtmlEditor($scope.content || '')
 

@@ -25,5 +25,5 @@
     "enableJiraImporter": false,
     "enableTrelloImporter": false,
     "gravatar": false,
-    "rtlLanguages": ["fa"]
+    "rtlLanguages": ["ar", "fa", "he"]
 }
