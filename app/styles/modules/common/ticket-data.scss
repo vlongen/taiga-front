@@ -129,10 +129,11 @@
 }
 
 .ticket-section-label {
+    @include font-size(xsmall);
     @include font-type(medium);
-    color: lighten($grayer, 11%);
-    flex-grow: 1;
-    font-size: .875rem;
+    color: $color-black900;
+    display: block;
+    margin-block-end: .25rem;
     text-transform: uppercase;
 }
 

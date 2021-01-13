@@ -693,10 +693,10 @@
 .lightbox-create-edit {
     z-index: $overall-layer;
     $control-height: 30px;
-    $spacing: 15px;
+    $spacing: 1rem;
     $width: 700px;
     $pop-width: 203px;
-    $sidebar-width: 220px;
+    $sidebar-width: calc(200px + 2rem);
     form {
         flex-basis: $width;
         max-width: $width;
@@ -712,7 +712,6 @@
         }
         .sidebar {
             background: none;
-            border-left: 2px solid $whitish;
             margin-left: $spacing;
             padding-left: $spacing;
             $min-width: $sidebar-width;
