@@ -321,21 +321,6 @@
         }
     }
 
-    // .assign-issue-button {
-    //     display: none;
-
-    //     &:hover {
-    //         background: $yellow-green;
-    //     }
-    //     &.is-active {
-    //         background: $grey-70;
-    //         display: inline-block;
-    //     }
-    //     &.button-set:hover {
-    //         background: $red-light;
-    //     }
-    // }
-
     .item-unblock {
         background: $color-link-red;
         &:hover {
@@ -345,22 +330,4 @@
             fill: $color-white;
         }
     }
-    // .button-delete {
-    //     background: $red-light;
-    //     &:hover {
-    //         background: $red;
-    //     }
-    // }
-    // img {
-    //     max-height: 1.25rem;
-    //     max-width: 1.25rem;
-    //     width: 100%;
-    // }
-
-    // .icon-private {
-    //     margin: 0;
-    // }
-    // a {
-    //     display: block;
-    // }
 }
