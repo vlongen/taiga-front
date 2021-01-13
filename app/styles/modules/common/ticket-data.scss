@@ -294,37 +294,20 @@
 }
 
 .ticket-detail-settings {
+    align-items: center;
     display: flex;
     justify-content: center;
-    margin-right: -.5rem;
-    .btn-icon {
-        align-items: center;
+    margin-top: 1rem;
+    [class^='btn-'] {
         background: $color-gray200;
         color: $color-link-primary;
-        cursor: pointer;
-        display: flex;
-        height: 2.5rem;
-        justify-content: center;
-        margin-right: .25rem;
-        padding: 0;
-        transition: all .1s ease-in;
-        width: 2.5rem;
+        margin-inline-end: .5rem;
+        padding: .75rem;
+        &:last-child {
+            margin-inline-end: 0;
+        }
         &:hover {
-            background: $color-gray400;
-            color: $color-link-tertiary;
-            transition: fill .1s ease-in;
-        }
-        &:active {
-            background: $color-link-tertiary;
-            color: $color-white;
-            tg-svg {
-                fill: $color-white;
-            }
-        }
-        tg-svg {
-            fill: $color-link-primary;
-            height: 1rem;
-            width: 1rem;
+            background: $color-gray200;
         }
         &.editable {
             cursor: pointer;
@@ -337,62 +320,47 @@
             color: $color-white;
         }
     }
-    .assign-issue-button {
-        display: none;
 
-        &:hover {
-            background: $yellow-green;
-        }
-        &.is-active {
-            background: $grey-70;
-        }
-        &.button-set:hover {
-            background: $red-light;
-        }
-    }
+    // .assign-issue-button {
+    //     display: none;
 
-    .item-block,
-    .item-unblock {
-        display: none;
-        &.is-active {
-            display: flex;
-        }
-    }
+    //     &:hover {
+    //         background: $yellow-green;
+    //     }
+    //     &.is-active {
+    //         background: $grey-70;
+    //         display: inline-block;
+    //     }
+    //     &.button-set:hover {
+    //         background: $red-light;
+    //     }
+    // }
+
     .item-unblock {
         background: $color-link-red;
-        tg-svg {
-            fill: $color-white;
-        }
         &:hover {
-            background: $red;
+            background: $color-link-red;
         }
-    }
-    .button-delete {
-        &:hover tg-svg {
-            fill: $color-link-red;
-        }
-        &:active {
-            background: $color-link-tertiary;
-            color: $color-white;
-            tg-svg {
-                fill: $color-white;
-            }
-        }
-    }
-    img {
-        max-height: 1.25rem;
-        max-width: 1.25rem;
-        width: 100%;
-    }
-    .icon-private {
-        margin: 0;
-    }
-    a {
-        display: block;
-    }
-    .due-date-button {
-        &.active tg-svg {
+        svg {
             fill: $color-white;
         }
     }
+    // .button-delete {
+    //     background: $red-light;
+    //     &:hover {
+    //         background: $red;
+    //     }
+    // }
+    // img {
+    //     max-height: 1.25rem;
+    //     max-width: 1.25rem;
+    //     width: 100%;
+    // }
+
+    // .icon-private {
+    //     margin: 0;
+    // }
+    // a {
+    //     display: block;
+    // }
 }

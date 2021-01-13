@@ -934,21 +934,6 @@
     .ticket-detail-settings {
         justify-content: left;
         margin: 1rem 0 0;
-        label {
-            border: 0;
-            height: 44px;
-            min-height: 44px;
-            padding: .5rem .65rem;
-            width: auto;
-            svg {
-                max-height: initial;
-            }
-        }
-        .item-block,
-        .item-unblock {
-            display: block;
-            margin: 0;
-        }
     }
 
     .blocked-note {
