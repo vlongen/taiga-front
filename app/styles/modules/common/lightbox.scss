@@ -939,6 +939,12 @@
     .blocked-note {
         margin-top: .5rem;
     }
+
+    .btn-container {
+        display: flex;
+        justify-content: flex-end;
+    }
+
 }
 
 .ticket-detail-settings .lightbox-assign-sprint-to-issue {

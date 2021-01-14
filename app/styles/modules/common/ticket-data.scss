@@ -67,31 +67,28 @@
 
 @mixin category-choices() {
     align-content: center;
-    background: $whitish;
+    background: $color-gray100;
     display: flex;
+    justify-content: space-between;
     margin-bottom: .5rem;
     padding: .5rem;
     position: relative;
     width: 100%;
-    .label,
-    .level-name {
+    .level-data {
+        @include font-size(small);
         align-items: center;
-        display: inline-block;
-        font-size: .8rem;
-        margin-left: .5rem;
-        max-width: 65px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        color: $color-black600;
+        display: flex;
     }
-    .icon {
-        height: .6rem;
-        margin: 0 0 .125rem .125rem;
-        width: .6rem;
+    .level-color {
+        border-radius: 50%;
+        height: 1rem;
+        margin-inline-start: .75rem;
+        width: 1rem;
     }
     .level-name {
-        margin-left: auto;
-        text-align: right;
+        @include font-size(xsmall);
+        color: $color-link-tertiary;
     }
     .popover {
         @include popover(150px, 30px, 30px, '', '', 0, '', '', '', 15px, 'left');
@@ -100,9 +97,6 @@
 
 
 .ticket-status {
-    &:last-child {
-        margin: 0;
-    }
     .level {
         display: inline-block;
         margin: 0;
@@ -110,12 +104,6 @@
     .level-name {
         color: $gray-light;
         text-transform: lowercase;
-    }
-    .clickable {
-        &:hover {
-            background: $gray-lighter;
-            transition: background .2s ease-in;
-        }
     }
     .type-data {
         @include category-choices;
@@ -297,7 +285,6 @@
     align-items: center;
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
     [class^='btn-'] {
         background: $color-gray200;
         color: $color-link-primary;
