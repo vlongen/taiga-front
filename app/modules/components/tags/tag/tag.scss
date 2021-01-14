@@ -1,18 +1,20 @@
 .tag {
     @include font-size(xsmall);
-    @include font-type(medium);
     @include ellipsis(20ch);
-    background: $color-link-tertiary;
+    background: $default-tags;
     border-radius: 2px;
     color: $color-white;
+    display: inline-flex;
     margin-inline-end: .25rem;
-    padding: .1rem .25rem;
+    padding: .1rem .5rem;
     text-align: center;
+    span {
+        margin-right: .25rem;
+    }
     .icon-close {
-        @include svg-size(.7rem);
+        @include svg-size(1.25rem);
         cursor: pointer;
-        fill: $color-link-red;
-        margin-inline-start: .25rem;
+        fill: $color-white;
     }
     .loading-spinner {
         height: 1rem;
