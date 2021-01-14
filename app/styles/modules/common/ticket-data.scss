@@ -290,11 +290,9 @@
         color: $color-link-primary;
         margin-inline-end: .5rem;
         padding: .75rem;
-        &:last-child {
-            margin-inline-end: 0;
-        }
         &:hover {
             background: $color-gray200;
+            color: $color-link-primary;
         }
         &.editable {
             cursor: pointer;
@@ -305,6 +303,14 @@
         &.active {
             background: $color-link-tertiary;
             color: $color-white;
+        }
+    }
+
+    .item-block,
+    .item-unblock {
+        display: none;
+        &.is-active {
+            display: unset;
         }
     }
 
