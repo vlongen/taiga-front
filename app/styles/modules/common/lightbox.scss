@@ -882,17 +882,15 @@
             }
         }
         .user-list-single {
-            align-content: center;
             align-items: center;
             display: flex;
-            flex-direction: row;
-            flex-grow: 0;
             padding: .5rem 0;
             &.selected {
                 color: $primary-light;
             }
         }
         .user-list-avatar {
+            border-radius: 50%;
             height: 32px;
             margin-right: .5rem;
             width: 32px;
