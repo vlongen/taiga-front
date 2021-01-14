@@ -319,6 +319,10 @@
         &:hover {
             background: $color-link-red;
         }
+        .loading-spinner {
+            height: 1rem;
+            width: 1rem;
+        }
         svg {
             fill: $color-white;
         }
