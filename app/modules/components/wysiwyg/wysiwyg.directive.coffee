@@ -95,7 +95,10 @@ Wysiwyg = ($translate, $confirm, $storage, wysiwygService, animationFrame, tgLoa
             textEditor.placeholder = $scope.placeholder
             setHtmlEditor(text)
             textEditor.mode = $scope.mode
-            textEditor.lan = $translate.preferredLanguage()
+            if $translate.preferredLanguage() == "zh-hans"
+                textEditor.lan = "zh-cn"
+            else
+                textEditor.lan = $translate.preferredLanguage()
             textEditor.uploadFunction = $scope.onUploadFile
             textEditor.members = $scope.project.members.map (member) =>
                 return Object.assign(member, {
