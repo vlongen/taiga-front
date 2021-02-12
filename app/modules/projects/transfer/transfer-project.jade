@@ -6,9 +6,13 @@
             alt="{{vm.project.get('name')}}"
         )
         .transfer-project-data
-            h3.transfer-project-title {{::vm.project.get("name")}}
+            //- h3.transfer-project-title {{::vm.project.get("name")}}
+            h3.transfer-project-title NOMBRE LARGO
             .transfer-project-statistics
-                span.transfer-project-private(ng-if="vm.project.get('is_private')")
+                //- span.transfer-project-private(ng-if="vm.project.get('is_private')")
+                //-     tg-svg(svg-icon="icon-private")
+                //-     span(translate="ADMIN.PROJECT_TRANSFER.PRIVATE")
+                span.transfer-project-private
                     tg-svg(svg-icon="icon-private")
                     span(translate="ADMIN.PROJECT_TRANSFER.PRIVATE")
                 span.transfer-project-members
